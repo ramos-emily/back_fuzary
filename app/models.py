@@ -12,7 +12,14 @@ class Spell(models.Model): #vai se comportar como models, la da tabela Spell
 class Characteres(models.Model):
     name = models.CharField(max_length=100)
     house = models.CharField(max_length=100)
-    
+    wizard = models.BooleanField(True)
+    species = models.CharField(max_length=100)
+    eyecolors = models.CharField(max_length=100)
+    haircolor = models.CharField(max_length=100)
+    actor = models.CharField(max_length=100)
+    img = models.TextField("https://pbs.twimg.com/profile_images/1083038156436525057/oc7dOkJw_400x400.jpg", blank=True, null=True)
+
+
     #name "name": "Harry Potter"
     #house "house": "Gryffindor",
     #wizard 	"wizard": true, boolean
