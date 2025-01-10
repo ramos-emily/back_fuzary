@@ -62,6 +62,44 @@ https://hp-api.onrender.com/api/characters
 
 
 
+sexta:
+
+
+	VER DOCUMENTAÇÃO
+
+
+
+ pip install djangorestframework markdown django-filter             (criar serializer e views)
+
+
+usar insomnia sempre
+
+
+TER ESSA LINHA NO SETTINGS SEMPRE (no settings do proj)
+
+
+REST_FRAMEWORK = {
+    
+    'DEFALT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,15 +9,27 @@ class Spell(models.Model): #vai se comportar como models, la da tabela Spell
     def __str__(self):
         return self.name
     
-class Characteres(models.Model):
-    name = models.CharField(max_length=100)
-    house = models.CharField(max_length=100)
-    wizard = models.BooleanField(True)
-    species = models.CharField(max_length=100)
-    eyecolors = models.CharField(max_length=100)
-    haircolor = models.CharField(max_length=100)
-    actor = models.CharField(max_length=100)
-    img = models.TextField("https://pbs.twimg.com/profile_images/1083038156436525057/oc7dOkJw_400x400.jpg", blank=True, null=True)
+class House(models.Model):
+    name = models.CharField(max_length=100, default='Desconhecida')
+    description = models.TextField()
+    
+    def __str__(self):
+        return self.name
+    
+    
+class Characters(models.Model):
+    name = models.CharField(max_length=100, default='Desconhecida')
+    house = models.ForeignKey(House, verbose_name="Character's house", on_delete=models.CASCADE)
+    wizard = models.BooleanField(default=True)
+    species = models.CharField(max_length=100, default='Desconhecida')
+    eyecolors = models.CharField(max_length=100, default='Desconhecida')
+    haircolor = models.CharField(max_length=100, default='Desconhecida')
+    img = models.TextField()
+    created = models.DateField(editable=False, auto_now=True)
+    
+    
+    def __str__(self):
+        return self.name
 
 
     #name "name": "Harry Potter"
